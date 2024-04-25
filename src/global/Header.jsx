@@ -1,9 +1,10 @@
 import { Link } from "react-router-dom";
+import SearchOrder from "../features/order/SearchOrder";
 export default function Header() {
   return (
     <header>
       <Link to="/">Automex Fast Foodss</Link>
-      <p>Automex</p>
+      <SearchOrder />
     </header>
   );
 }
