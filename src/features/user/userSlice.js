@@ -30,7 +30,6 @@ const initialState={
   username: ""
 }
 
-
 const userSlice =createSlice({
   name: "user",
   initialState,
