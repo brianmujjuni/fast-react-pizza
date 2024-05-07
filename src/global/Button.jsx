@@ -20,7 +20,7 @@ export default function Button({ children, disabled, to,type,onClick }) {
   }
   if(onClick){
     return (
-      <button onClick={onclick} disabled={disabled} className={style[type]}>
+      <button onClick={onClick} disabled={disabled} className={style[type]}>
         {children}
       </button>
     );

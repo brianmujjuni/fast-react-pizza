@@ -4,9 +4,13 @@ import { useDispatch } from "react-redux";
 import {addItem} from "../cart/cartSlice"
 
 function MenuItem({ pizza }) {
+
   const dispatch = useDispatch()
+
   const { id, name, unitPrice, ingredients, soldOut, imageUrl } = pizza;
+
   function handleAddToCart(){
+    console.log(id)
     const newItem={
       pizzaId: id,
       name,
@@ -14,7 +18,7 @@ function MenuItem({ pizza }) {
       unitPrice,
       totalPrice: unitPrice * 1
     }
-    dispatch(addItem())
+    dispatch(addItem(newItem))
   }
   return (
     <li className="flex gap-4 py-2 ">
