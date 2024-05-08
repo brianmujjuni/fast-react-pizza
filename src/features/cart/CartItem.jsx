@@ -1,4 +1,4 @@
-import Button from "../../global/Button";
+
 import { formatCurrency } from "../../utilities/helpers";
 import DeleteItem from "./DeleteItem";
 
