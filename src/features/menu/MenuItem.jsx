@@ -35,7 +35,7 @@ function MenuItem({ pizza }) {
        
           {!soldOut ? <p className="text-sm">{formatCurrency(unitPrice)}</p> : <p className="text-sm uppercase font-medium text-stone-500">Sold out</p>}
           {isInCart && <DeleteItem pizzaId={id}/>}
-          {!soldOut && <Button type="small" onClick={handleAddToCart}>Add to cart</Button>}
+          {!soldOut && !isInCart && <Button type="small" onClick={handleAddToCart}>Add to cart</Button>}
         </div>
       </div>
     </li>
