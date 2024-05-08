@@ -7,10 +7,12 @@ import DeleteItem from "../cart/DeleteItem";
 function MenuItem({ pizza }) {
 
   const dispatch = useDispatch()
-  const currentQuantity = useSelector(getCurrentQuantityById(id))
+  
 
   const { id, name, unitPrice, ingredients, soldOut, imageUrl } = pizza;
 
+  const currentQuantity = useSelector(getCurrentQuantityById(id))
+  const isInCart = currentQuantity > 0
   function handleAddToCart(){
     console.log(id)
     const newItem={
@@ -32,7 +34,7 @@ function MenuItem({ pizza }) {
         <div className="mt-auto flex items-center justify-between pt-0.5 ">
        
           {!soldOut ? <p className="text-sm">{formatCurrency(unitPrice)}</p> : <p className="text-sm uppercase font-medium text-stone-500">Sold out</p>}
-          <DeleteItem pizzaId={id}/>
+          {isInCart && <DeleteItem pizzaId={id}/>}
           {!soldOut && <Button type="small" onClick={handleAddToCart}>Add to cart</Button>}
         </div>
       </div>
