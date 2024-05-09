@@ -42,10 +42,20 @@ const userSlice = createSlice({
     },
   },
   extraReducers: (builder) =>
-    builder.addCase(
-      fetchAddress.pending,
-      (state, action) => (state.status = "loading")
-    ),
+    builder
+      .addCase(
+        fetchAddress.pending,
+        (state, action) => (state.status = "loading")
+      )
+      .addCase(fetchAddress.fullfilled, (state, action) => {
+        state.position = action.payload.position;
+        state.address = action.payload.address;
+        state.state = "idle";
+      })
+      .addCase(fetchAddress.rejected, (state, action) => {
+        state.status = "error";
+        state.error = action.error.message;
+      }),
 });
 
 export const { updateName } = userSlice.actions;
