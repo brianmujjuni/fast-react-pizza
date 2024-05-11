@@ -28,7 +28,7 @@ function CreateOrder() {
 
   const formErrors = useActionData();
   const dispatch = useDispatch();
-  
+
   const username = useSelector((state) => state.user.username);
   const cart = useSelector(getCart);
   const totalCartPrice = useSelector(getTotalCartPrice);
@@ -64,7 +64,7 @@ function CreateOrder() {
           )}
         </div>
 
-        <div className="mb-5 flex gap-2 flex-col sm:flex-row sm:items-center">
+        <div className="mb-5 flex gap-2 flex-col sm:flex-row sm:items-center relative">
           <label className="sm:basis-40">Address</label>
           <div className="grow">
             <input
@@ -74,6 +74,17 @@ function CreateOrder() {
               required
             />
           </div>
+          <span className="absolute right-[3px] z-50">
+            <Button
+              type="small"
+              onClick={(e) => {
+                e.preventDefault();
+                dispatch(fetchAddress());
+              }}
+            >
+              Get Position
+            </Button>
+          </span>
         </div>
 
         <div className="mb-12 flex items-center gap-5">
