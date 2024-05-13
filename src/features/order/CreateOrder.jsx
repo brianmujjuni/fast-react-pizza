@@ -125,7 +125,11 @@ function CreateOrder() {
           <input
             type="hidden"
             name="position"
-            value={`${position.latitude},${position.longitude}`}
+            value={
+              position.longitude && position.latitude
+                ? `${position.latitude},${position.longitude}`
+                : ""
+            }
           />
 
           <Button type="primary" disabled={isSubmitting}>
