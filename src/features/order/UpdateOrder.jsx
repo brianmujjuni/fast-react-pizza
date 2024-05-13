@@ -5,13 +5,12 @@ export default function UpdateOrder({ order }) {
   const fetcher = useFetcher();
 
   return (
-    <fetcher.form method="PATCH" className="text-right">
-      <Button type="primary">Make Priority</Button>;
-    </fetcher.form>
+    <fetcher.Form method="PATCH" className="text-right">
+      <Button type="primary">Make Priority</Button>
+    </fetcher.Form>
   );
 }
 
-asycn function action(request,params){
-    return null
-
+export async function action({ request, params }) {
+  return null;
 }
